@@ -1,0 +1,23 @@
+{
+  "project": "3025890236518366992",
+  "forms": {
+    "inquiryForm": {
+      "name": "Booking Inquiry",
+      "actions": [
+        {
+          "type": "email",
+          "to": "thewanderingbars@gmail.com"
+        }
+      ],
+      "fields": {
+        "name": { "type": "text", "required": true },
+        "email": { "type": "email", "required": true },
+        "phone": { "type": "text" },
+        "event_date": { "type": "text" },
+        "event_type": { "type": "text" },
+        "guest_count": { "type": "text" },
+        "message": { "type": "text", "required": true }
+      }
+    }
+  }
+}
