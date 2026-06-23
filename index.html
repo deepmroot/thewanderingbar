@@ -7,7 +7,7 @@
   <meta name="description" content="Upscale mobile bar service in Kamloops, BC. Custom cocktails, mocktails, specialty coffee, and curated beverage experiences for weddings, private events, and celebrations across the Interior.">
   <link rel="icon" type="image/webp" href="logo.webp">
   <link rel="apple-touch-icon" href="logo.webp">
-  <meta name="theme-color" content="#3B2A22">
+  <meta name="theme-color" content="#7A5C5C">
 
   <!-- Open Graph / Social -->
   <meta property="og:type" content="website">
@@ -43,9 +43,9 @@
       --script:    'Great Vibes', cursive;
       --ease:      cubic-bezier(0.4, 0, 0.2, 1);
       --ease-out:  cubic-bezier(0.0, 0, 0.2, 1);
-      --shadow-sm: 0 2px 12px rgba(59,42,34,0.07);
-      --shadow-md: 0 8px 32px rgba(59,42,34,0.11);
-      --shadow-lg: 0 20px 60px rgba(59,42,34,0.15);
+      --shadow-sm: 0 2px 12px rgba(94,69,69,0.07);
+      --shadow-md: 0 8px 32px rgba(94,69,69,0.11);
+      --shadow-lg: 0 20px 60px rgba(94,69,69,0.15);
     }
 
     body {
@@ -143,7 +143,7 @@
     #nav.scrolled {
       background: rgba(250,244,237,0.97);
       backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-      box-shadow: 0 1px 0 rgba(59,42,34,0.07);
+      box-shadow: 0 1px 0 rgba(94,69,69,0.07);
       padding: 0.5rem 0;
     }
     .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 2rem; }
@@ -255,7 +255,7 @@
     }
     .hero-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(170deg, rgba(29,17,10,0.72) 0%, rgba(45,25,10,0.38) 45%, rgba(29,17,10,0.68) 100%);
+      background: linear-gradient(170deg, rgba(94,69,69,0.72) 0%, rgba(94,69,69,0.38) 45%, rgba(94,69,69,0.68) 100%);
     }
     .hero-glow { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse 70% 60% at 50% 70%, rgba(196,139,90,0.12), transparent 70%); }
     .hero-content {
@@ -455,8 +455,8 @@
     .packages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; align-items: start; }
     .pkg-card { background: var(--bg); border: 1px solid rgba(196,139,90,0.15); border-radius: 12px; padding: 2.8rem 2.4rem; position: relative; transition: transform 0.32s var(--ease), box-shadow 0.32s, border-color 0.32s; }
     .pkg-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: rgba(196,139,90,0.3); }
-    .pkg-card.featured { background: var(--primary); border-color: var(--primary); transform: scale(1.03); box-shadow: 0 24px 70px rgba(59,42,34,0.22); }
-    .pkg-card.featured:hover { transform: scale(1.03) translateY(-5px); box-shadow: 0 32px 80px rgba(59,42,34,0.28); }
+    .pkg-card.featured { background: var(--primary); border-color: var(--primary); transform: scale(1.03); box-shadow: 0 24px 70px rgba(94,69,69,0.22); }
+    .pkg-card.featured:hover { transform: scale(1.03) translateY(-5px); box-shadow: 0 32px 80px rgba(94,69,69,0.28); }
     .pkg-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--secondary); color: var(--light); font-family: var(--sans); font-size: 0.6rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; padding: 0.32rem 1.1rem; border-radius: 50px; white-space: nowrap; box-shadow: 0 4px 16px rgba(196,139,90,0.4); }
     .pkg-label { font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase; font-family: var(--sans); font-weight: 500; color: var(--secondary); margin-bottom: 0.35rem; }
     .pkg-card.featured .pkg-label { color: rgba(196,139,90,0.8); }
@@ -516,7 +516,7 @@
     .gallery-item { cursor: pointer; }
     .gallery-item img { transition: transform 0.7s var(--ease); }
     .gallery-item:hover img { transform: scale(1.07); }
-    .gallery-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(29,17,10,0.5) 0%, transparent 55%); opacity: 0; transition: opacity 0.35s; }
+    .gallery-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(94,69,69,0.5) 0%, transparent 55%); opacity: 0; transition: opacity 0.35s; }
     .gallery-item:hover .gallery-overlay { opacity: 1; }
 
     /* ─── LIGHTBOX ────────────────────────────────── */
@@ -612,7 +612,7 @@
     /* ─── FINAL CTA ──────────────────────────────── */
     #cta { position: relative; overflow: hidden; }
     .cta-bg { position: absolute; inset: 0; background-image: url('assets/photos/IMG_6489_preview.jpg'); background-size: cover; background-position: center; }
-    .cta-overlay { position: absolute; inset: 0; background: linear-gradient(150deg, rgba(29,17,10,0.92), rgba(59,42,34,0.8)); }
+    .cta-overlay { position: absolute; inset: 0; background: linear-gradient(150deg, rgba(94,69,69,0.93), rgba(122,92,92,0.85)); }
     .cta-glow { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 50% 80%, rgba(196,139,90,0.1), transparent 70%); pointer-events: none; }
     .cta-content { position: relative; z-index: 2; text-align: center; padding: 6rem 2rem; max-width: 800px; margin: 0 auto; }
     .cta-content .tag { color: var(--secondary); }
