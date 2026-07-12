@@ -1,0 +1,19 @@
+# The Wandering Bar
+
+> Upscale mobile bar service based in the Shuswap/Kamloops area of Interior BC, Canada. Custom cocktails, mocktails, specialty coffee, and curated beverage experiences for weddings, private events, and celebrations.
+
+The Wandering Bar operates vintage horse-trailer-converted mobile bars, staffed with professional bartenders, serving weddings and private events across Kamloops, Shuswap, Okanagan, and the BC Interior.
+
+## Services
+
+- [Packages & Pricing](https://www.thewanderingbarshuswap.com/#packages): Mobile bar service packages for weddings and events
+- [Gallery](https://www.thewanderingbarshuswap.com/#gallery): Photos of past events and trailer setups
+- [Dry Hire](https://www.thewanderingbarshuswap.com/#dry-hire): Bar trailer rental without bartending staff
+- [FAQ](https://www.thewanderingbarshuswap.com/#faq): Common questions about booking, pricing, and service area
+
+## Contact
+
+- Email: thewanderingbars@gmail.com
+- Instagram: https://www.instagram.com/thewanderingbars
+- Facebook: https://www.facebook.com/profile.php?id=100064069724012
+- Service area: Kamloops, Shuswap, Okanagan, Interior BC, Canada
