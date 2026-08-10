@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Final Photo Picks — The Wandering Bar</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --primary:   #6E5252;
+    --secondary: #C48B5A;
+    --accent:    #F5E6DC;
+    --bg:        #FDF7F3;
+    --light:     #FFFBF8;
+    --muted:     #8C7272;
+    --dark:      #4E3838;
+    --serif:     'Cormorant Garamond', Georgia, serif;
+    --sans:      'DM Sans', system-ui, sans-serif;
+    --ease:      cubic-bezier(0.4, 0, 0.2, 1);
+    --shadow-sm: 0 2px 12px rgba(78,56,56,0.07);
+    --shadow-md: 0 8px 32px rgba(78,56,56,0.11);
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--dark);
+    font-family: var(--sans);
+    font-weight: 300;
+    padding-bottom: 100px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  header {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 52px 24px 26px;
+  }
+
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--secondary);
+    font-weight: 500;
+    margin-bottom: 14px;
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(1.9rem, 4vw, 2.7rem);
+    color: var(--primary);
+    line-height: 1.2;
+    text-wrap: balance;
+    margin-bottom: 14px;
+  }
+
+  .instructions {
+    max-width: 60ch;
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .instructions strong { color: var(--dark); font-weight: 500; }
+
+  .toolbar {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 22px;
+  }
+
+  .count {
+    font-size: 0.92rem;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .count strong { color: var(--secondary); font-size: 1.05rem; }
+
+  .toolbar-actions { display: flex; gap: 10px; }
+
+  .btn-ghost {
+    background: none;
+    border: 1px solid var(--accent);
+    color: var(--muted);
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    padding: 8px 16px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: border-color 0.3s var(--ease), color 0.3s var(--ease);
+  }
+
+  .btn-ghost:hover { border-color: var(--secondary); color: var(--secondary); }
+  .btn-ghost:focus-visible { outline: 2px solid var(--secondary); outline-offset: 2px; }
+
+  .grid {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 30px 24px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 14px;
+  }
+
+  .card {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--light);
+    border: 1px solid var(--accent);
+    cursor: pointer;
+    aspect-ratio: 2 / 3;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s var(--ease);
+  }
+
+  .card:hover img { transform: scale(1.04); }
+
+  .card input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .tick {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.88);
+    border: 2px solid #fff;
+    box-shadow: 0 1px 4px rgba(78,56,56,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    transition: background 0.2s var(--ease), border-color 0.2s var(--ease);
+  }
+
+  .card input:checked ~ .tick {
+    background: var(--secondary);
+    border-color: var(--secondary);
+  }
+
+  .tick svg { width: 14px; height: 14px; opacity: 0; transition: opacity 0.2s var(--ease); }
+  .card input:checked ~ .tick svg { opacity: 1; }
+
+  .frame { position: absolute; inset: 0; pointer-events: none; border-radius: 9px; }
+
+  .card input:checked ~ .frame {
+    outline: 3px solid var(--secondary);
+    outline-offset: -3px;
+  }
+
+  .card input:focus-visible ~ .frame {
+    outline: 3px solid var(--primary);
+    outline-offset: -3px;
+  }
+
+  .fname {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    padding: 5px 8px;
+    font-size: 10.5px;
+    color: #fff;
+    background: linear-gradient(to top, rgba(78,56,56,0.65), transparent);
+    pointer-events: none;
+    font-variant-numeric: tabular-nums;
+    font-family: var(--sans);
+  }
+
+  .submit-bar {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    background: var(--light);
+    border-top: 1px solid var(--accent);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    box-shadow: 0 -6px 24px rgba(78,56,56,0.08);
+    z-index: 10;
+  }
+
+  .submit-bar .count { font-size: 0.95rem; }
+
+  .btn-submit {
+    background: var(--primary);
+    color: var(--light);
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-family: var(--sans);
+    font-size: 0.92rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s var(--ease), transform 0.2s var(--ease);
+  }
+
+  .btn-submit:hover:not(:disabled) { background: var(--dark); transform: translateY(-1px); }
+  .btn-submit:disabled { opacity: 0.4; cursor: not-allowed; }
+  .btn-submit:focus-visible { outline: 2px solid var(--secondary); outline-offset: 2px; }
+
+  .btn-submit.sending { opacity: 0.7; cursor: wait; }
+
+  .status-msg {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 16px 24px 0;
+    font-size: 0.88rem;
+    display: none;
+  }
+
+  .status-msg.show { display: block; }
+  .status-msg.ok { color: #4a7a5e; }
+  .status-msg.err { color: #b3453f; }
+
+  .done-screen {
+    max-width: 620px;
+    margin: 120px auto;
+    padding: 0 24px;
+    text-align: center;
+    display: none;
+  }
+
+  .done-screen.show { display: block; }
+
+  .done-screen h2 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 2.2rem;
+    color: var(--primary);
+    margin-bottom: 14px;
+  }
+
+  .done-screen p { color: var(--muted); line-height: 1.7; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card img, .tick, .tick svg, .btn-submit, .card:hover img { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<header id="pickerHeader">
+  <p class="eyebrow">The Wandering Bar &middot; Final Selects</p>
+  <h1>Pick the shots you love.</h1>
+  <p class="instructions">
+    <strong>67 photos</strong> from the shoot are below. Tap each one you want in the final delivery —
+    a gold outline means it's picked. When you're happy with your selects, hit
+    <strong>Send My Picks</strong> — it submits straight away, no email needed.
+  </p>
+</header>
+
+<div class="toolbar" id="toolbar">
+  <div class="count"><strong id="countNum">0</strong> of 67 selected</div>
+  <div class="toolbar-actions">
+    <button class="btn-ghost" id="selectAll" type="button">Select all</button>
+    <button class="btn-ghost" id="clearAll" type="button">Clear</button>
+  </div>
+</div>
+
+<div class="grid" id="grid"></div>
+
+<p class="status-msg" id="statusMsg"></p>
+
+<div class="submit-bar" id="submitBar">
+  <div class="count">Ready with <strong id="countNum2">0</strong> picks</div>
+  <button class="btn-submit" id="submitBtn" type="button" disabled>Send My Picks</button>
+</div>
+
+<div class="done-screen" id="doneScreen">
+  <h2>Picks received.</h2>
+  <p>Thank you! Your selections were sent through. Mandeep has your final list.</p>
+</div>
+
+<script>
+  var ITEMS = [{"id":"99431083","file":"R68A6469.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/d7ir5qw5r179cocwicg6o5dhie1e.jpg"},{"id":"99431082","file":"R68A6876.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/wev2songi5hc8heysqjypyktdahx.jpg"},{"id":"99431081","file":"R68A6471.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/5wg613ft5ts537qhouiterj0tsaj.jpg"},{"id":"99431080","file":"R68A6837.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/w5as7u20f94n30bl7r8cbe56ulrl.jpg"},{"id":"99431078","file":"R68A6800.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/8yxxcdu7hsk1zlpgx2t3kak4kzjz.jpg"},{"id":"99431076","file":"R68A6857.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/m0d289ekl8cunrvbvp7uelw88tt3.jpg"},{"id":"99431072","file":"C+L-487.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/7j7yjeg0kiay5fo07w309upm4boq.jpg"},{"id":"99431070","file":"R68A6781.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/3plopnwq6o1xnulw36sjs5fmtegh.jpg"},{"id":"99431067","file":"R68A6661.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/bfldynpy6lhm4c78e8uddzs8te8f.jpg"},{"id":"101257105","file":"ARPC-770.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/q4oqwkwug9zuqexnuf50t9jgnjkx.jpg"},{"id":"101257175","file":"ARPC-771.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/6bd6rhwdiv03rnr20fcigjnpla0z.jpg"},{"id":"101257137","file":"ARPC-772.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/c1vqsfygy342h6wrxpd3rkus6jzv.jpg"},{"id":"101257136","file":"ARPC-773.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/j6xwtakiq505e8ewzii50lhuf5b6.jpg"},{"id":"101257109","file":"ARPC-774.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/c2lpv9a8lgder327rvlw3ow90ktq.jpg"},{"id":"101257139","file":"ARPC-775.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/500w0pfpp9ew9iuo3rq96zli8hk0.jpg"},{"id":"101257181","file":"ARPC-776.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/i44ku7tdf0sm1tjpux34o4tz59vb.jpg"},{"id":"101257150","file":"ARPC-777.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/dtee6qeywmymv0w5neh79s3aavto.jpg"},{"id":"101257176","file":"ARPC-778.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/ry7g4n8o8opea8el472cljr7qf4n.jpg"},{"id":"101257148","file":"ARPC-779.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/fptc5i26li8euh8s4ikhlikon4w8.jpg"},{"id":"101257187","file":"ARPC-780.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/ng3i5pixfdm9xh50qfl14lrswa5g.jpg"},{"id":"101257110","file":"ARPC-781.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/fudgcg7y4gfn5rfmzk8y5sas9tch.jpg"},{"id":"101257141","file":"ARPC-782.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/lj5lcunyslujklsea8dopz8yvp6d.jpg"},{"id":"101257112","file":"ARPC-783.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/ccmoij7v8y4xdb2jhvsnvmbv8p7l.jpg"},{"id":"101257111","file":"ARPC-784.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/e9r6g328bbo31emsszr6g6u4igfw.jpg"},{"id":"101257116","file":"ARPC-785.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/hu8f1038bq971kg94yvtocf1l8ey.jpg"},{"id":"101257113","file":"ARPC-786.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/q1ewhzeg6nn5ioqprkiz2i596hx8.jpg"},{"id":"101257165","file":"ARPC-787.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/5pvhmi0eyt5krsuar2nut5g7rbev.jpg"},{"id":"101257143","file":"ARPC-788.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/ai9e5r3kt7yhcxcevkv6rb95t8ck.jpg"},{"id":"101257189","file":"ARPC-789.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/avhnr7g89yjiazdkm4vfabel7apo.jpg"},{"id":"101257114","file":"ARPC-790.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/fxe68eh66tfeqmnjn4dr8f9udzhl.jpg"},{"id":"101257146","file":"ARPC-791.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/s4szvffj6t3eiflrolicegouur5b.jpg"},{"id":"101257144","file":"ARPC-792.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/5flg94na545g20qgwvz3l307srsz.jpg"},{"id":"101257174","file":"ARPC-793.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/mcox9c4qqv4wyfav2s9uy6mxfqb4.jpg"},{"id":"101257118","file":"ARPC-794.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/uao1lfb193fjkkgb8y8maqkigawy.jpg"},{"id":"101257164","file":"ARPC-795.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/mf57z3yex3qc6kdy1r4tbbyk2hdg.jpg"},{"id":"101257125","file":"ARPC-796.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/v65tjffhzioig9wjbtdwd9u51go0.jpg"},{"id":"101257117","file":"ARPC-797.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/d0ldbpe1shrtzi1zkh5pwsha7l5m.jpg"},{"id":"101257177","file":"ARPC-798.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/bj9ih2agemrpva47j6m67z0snlo7.jpg"},{"id":"101257162","file":"ARPC-799.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/9gfe3pvls8slsmtotg47sru7ovbd.jpg"},{"id":"101257156","file":"ARPC-800.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/fvqztipkco8tpnryeyqni3jiv4ir.jpg"},{"id":"101257121","file":"ARPC-801.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/732ku8kablfdc19edl13rqh0phxh.jpg"},{"id":"101257180","file":"ARPC-802.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/2hgdz4d3pjqvjqkrlk8q9bdqbkd9.jpg"},{"id":"101257169","file":"ARPC-803.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/3hk69difb4bsqsozw5n0mjvtqsrr.jpg"},{"id":"101257171","file":"ARPC-804.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/pfs9s35m4ipatgurke1qm3z87ryp.jpg"},{"id":"101257124","file":"ARPC-805.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/qwzrpmqoeu7076edw4ye4m8vw7kj.jpg"},{"id":"101257182","file":"ARPC-806.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/1zr8gemwafcvc6yyo6ym7hoe86zg.jpg"},{"id":"101257193","file":"ARPC-807.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/vyglev31q3gd4zp0fkdwqh4386nf.jpg"},{"id":"101257126","file":"ARPC-808.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/wbadrpmz9wf0kbhcmprlzilw46n5.jpg"},{"id":"101257154","file":"ARPC-809.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/ajdj4fxx9cowuq9dy8z4wjj4zyvk.jpg"},{"id":"101257138","file":"ARPC-810.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/lvrf58bgfqc77y3fkpxqunrpll5x.jpg"},{"id":"101257132","file":"ARPC-811.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/f34usw77ri4pde57tcfmt18ojo53.jpg"},{"id":"101257151","file":"ARPC-812.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/dvgq40zghh8pn1xsa0kodhc4rzng.jpg"},{"id":"101257155","file":"ARPC-813.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/qpeq7gyz9p8he2viy8agmsn24uqx.jpg"},{"id":"101257128","file":"ARPC-814.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/l2yz8kz3m3639xw051u2krg06qen.jpg"},{"id":"101257152","file":"ARPC-815.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/f83rjnm6zwqqz4am2yyq47rk9xma.jpg"},{"id":"101257129","file":"ARPC-816.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/mwrzto79hh3twgloshwos0hiduef.jpg"},{"id":"101257172","file":"ARPC-818.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/rqw1u9likeu6aw9051v0xd7dkwov.jpg"},{"id":"101257153","file":"ARPC-817.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/ycqagkmze4i3xwnsmush7b4qg8bi.jpg"},{"id":"101257131","file":"ARPC-819.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/euu2ui2y1oie4mhksqcw0bsw6fgd.jpg"},{"id":"101257168","file":"ARPC-820.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/fjv7xdwx3mk5njbwdj6kohcfl3n9.jpg"},{"id":"101257192","file":"ARPC-821.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/2nwtepkqg8tn3vox4t04lnwinhkm.jpg"},{"id":"101257158","file":"ARPC-822.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/zymi70srus0sjg2hf4nlx2351w97.jpg"},{"id":"101257170","file":"ARPC-823.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/hdihe8f3e9k7cdrdfsh9w0ktedup.jpg"},{"id":"101257159","file":"ARPC-824.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/okgioz66or0j4zml5bjy2lhd6413.jpg"},{"id":"101257184","file":"ARPC-825.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/ntkkgd22r0ur68rytvzdemhvuf26.jpg"},{"id":"101257134","file":"ARPC-826.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/18u3c0roqqkhmrpp57rcsssancpz.jpg"},{"id":"101257183","file":"ARPC-827.jpg","src":"https://unscriptedphotographers.com/_cf_images/variant=limit_900,storage=cloudflare/6ui3hh4opg9yowtcqtmfz5jkgght.jpg"}];
+  var FORM_ENDPOINT = 'https://formspree.io/f/xrpzplpn';
+
+  var grid = document.getElementById('grid');
+  var countNum = document.getElementById('countNum');
+  var countNum2 = document.getElementById('countNum2');
+  var submitBtn = document.getElementById('submitBtn');
+  var statusMsg = document.getElementById('statusMsg');
+
+  ITEMS.forEach(function (item, i) {
+    var card = document.createElement('label');
+    card.className = 'card';
+    card.innerHTML =
+      '<img src="' + item.src + '" alt="' + item.file + '" loading="lazy">' +
+      '<input type="checkbox" data-idx="' + i + '">' +
+      '<span class="frame"></span>' +
+      '<span class="tick"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.2 11.5L13 4.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>' +
+      '<span class="fname">' + item.file + '</span>';
+    grid.appendChild(card);
+  });
+
+  function updateCount() {
+    var checked = grid.querySelectorAll('input:checked').length;
+    countNum.textContent = checked;
+    countNum2.textContent = checked;
+    submitBtn.disabled = checked === 0;
+  }
+
+  grid.addEventListener('change', updateCount);
+
+  document.getElementById('selectAll').addEventListener('click', function () {
+    grid.querySelectorAll('input').forEach(function (cb) { cb.checked = true; });
+    updateCount();
+  });
+
+  document.getElementById('clearAll').addEventListener('click', function () {
+    grid.querySelectorAll('input').forEach(function (cb) { cb.checked = false; });
+    updateCount();
+  });
+
+  submitBtn.addEventListener('click', function () {
+    var picks = [];
+    grid.querySelectorAll('input:checked').forEach(function (cb) {
+      picks.push(ITEMS[parseInt(cb.dataset.idx, 10)].file);
+    });
+
+    submitBtn.disabled = true;
+    submitBtn.classList.add('sending');
+    submitBtn.textContent = 'Sending…';
+    statusMsg.className = 'status-msg';
+    statusMsg.textContent = '';
+
+    var fd = new FormData();
+    fd.append('_subject', 'The Wandering Bar - Final Photo Picks (' + picks.length + ')');
+    fd.append('pick_count', String(picks.length));
+    fd.append('picks', picks.join('\n'));
+
+    fetch(FORM_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: fd
+    }).then(function (res) {
+      if (res.ok) {
+        document.getElementById('pickerHeader').style.display = 'none';
+        document.getElementById('toolbar').style.display = 'none';
+        grid.style.display = 'none';
+        document.getElementById('submitBar').style.display = 'none';
+        document.getElementById('doneScreen').classList.add('show');
+      } else {
+        throw new Error('submit failed');
+      }
+    }).catch(function () {
+      statusMsg.className = 'status-msg show err';
+      statusMsg.textContent = 'Something went wrong sending your picks — please try again.';
+      submitBtn.disabled = false;
+      submitBtn.classList.remove('sending');
+      submitBtn.textContent = 'Send My Picks';
+    });
+  });
+</script>
+</body>
+</html>
