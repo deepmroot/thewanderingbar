@@ -502,23 +502,8 @@
 
     /* ─── GALLERY ────────────────────────────────── */
     #gallery { background: var(--bg); }
-    .gallery-grid { display: grid; grid-template-columns: repeat(12, 1fr); grid-template-rows: 360px 280px 320px 300px 320px; gap: 0.65rem; }
-    .gallery-item { overflow: hidden; border-radius: 6px; position: relative; }
-    .gallery-item:nth-child(1) { grid-column: 1 / 6;  grid-row: 1; }
-    .gallery-item:nth-child(2) { grid-column: 6 / 9;  grid-row: 1; }
-    .gallery-item:nth-child(3) { grid-column: 9 / 13; grid-row: 1; }
-    .gallery-item:nth-child(4) { grid-column: 1 / 5;  grid-row: 2; }
-    .gallery-item:nth-child(5) { grid-column: 5 / 9;  grid-row: 2; }
-    .gallery-item:nth-child(6) { grid-column: 9 / 13; grid-row: 2; }
-    .gallery-item:nth-child(7) { grid-column: 1 / 5;  grid-row: 3; }
-    .gallery-item:nth-child(8) { grid-column: 5 / 9;  grid-row: 3; }
-    .gallery-item:nth-child(9) { grid-column: 9 / 13; grid-row: 3; }
-    .gallery-item:nth-child(10) { grid-column: 1 / 5;  grid-row: 4; }
-    .gallery-item:nth-child(11) { grid-column: 5 / 9;  grid-row: 4; }
-    .gallery-item:nth-child(12) { grid-column: 9 / 13; grid-row: 4; }
-    .gallery-item:nth-child(13) { grid-column: 1 / 5; grid-row: 5; }
-    .gallery-item:nth-child(14) { grid-column: 5 / 9; grid-row: 5; }
-    .gallery-item:nth-child(15) { grid-column: 9 / 13; grid-row: 5; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 0.65rem; }
+    .gallery-item { overflow: hidden; border-radius: 6px; position: relative; aspect-ratio: 4 / 5; }
     .gallery-item { cursor: pointer; }
     .gallery-item img { transition: transform 0.7s var(--ease); }
     .gallery-item:hover img { transform: scale(1.07); }
@@ -712,8 +697,7 @@
       .hero-btns .btn { padding: 0.85rem 1.6rem; font-size: 0.7rem; }
       .gallery-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; gap: 0.65rem; padding: 0 1.5rem 0.5rem; margin: 0 -1.5rem; scrollbar-width: none; grid-template-columns: unset; grid-template-rows: unset; }
       .gallery-grid::-webkit-scrollbar { display: none; }
-      .gallery-item { flex: 0 0 78vw; height: 280px; scroll-snap-align: start; border-radius: 8px; }
-      .gallery-item:nth-child(n) { grid-column: unset; grid-row: unset; }
+      .gallery-item { flex: 0 0 78vw; height: 280px; aspect-ratio: unset; scroll-snap-align: start; border-radius: 8px; }
       .gallery-dots { display: flex; }
       .testimonials-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; gap: 1rem; padding: 0 1.5rem 0.5rem; margin: 0 -1.5rem; scrollbar-width: none; }
       .testimonials-grid::-webkit-scrollbar { display: none; }
@@ -1294,6 +1278,182 @@
         </div>
         <div class="gallery-item reveal-scale delay-3">
           <img src="assets/photos/IMG_7362.jpeg" alt="Couple receiving drinks at the mobile bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-1">
+          <img src="assets/photos/gloria-picks/R68A6469.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-2">
+          <img src="assets/photos/gloria-picks/R68A6876.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-3">
+          <img src="assets/photos/gloria-picks/R68A6471.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-1">
+          <img src="assets/photos/gloria-picks/R68A6800.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-2">
+          <img src="assets/photos/gloria-picks/R68A6857.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-3">
+          <img src="assets/photos/gloria-picks/C+L-487.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-1">
+          <img src="assets/photos/gloria-picks/R68A6781.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-2">
+          <img src="assets/photos/gloria-picks/R68A6661.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-3">
+          <img src="assets/photos/gloria-picks/ARPC-771.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-1">
+          <img src="assets/photos/gloria-picks/ARPC-774.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-2">
+          <img src="assets/photos/gloria-picks/ARPC-775.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-3">
+          <img src="assets/photos/gloria-picks/ARPC-776.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-1">
+          <img src="assets/photos/gloria-picks/ARPC-777.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-2">
+          <img src="assets/photos/gloria-picks/ARPC-778.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-3">
+          <img src="assets/photos/gloria-picks/ARPC-779.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-1">
+          <img src="assets/photos/gloria-picks/ARPC-780.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-2">
+          <img src="assets/photos/gloria-picks/ARPC-783.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-3">
+          <img src="assets/photos/gloria-picks/ARPC-784.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-1">
+          <img src="assets/photos/gloria-picks/ARPC-785.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-2">
+          <img src="assets/photos/gloria-picks/ARPC-786.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-3">
+          <img src="assets/photos/gloria-picks/ARPC-787.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-1">
+          <img src="assets/photos/gloria-picks/ARPC-788.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-2">
+          <img src="assets/photos/gloria-picks/ARPC-789.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-3">
+          <img src="assets/photos/gloria-picks/ARPC-796.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-1">
+          <img src="assets/photos/gloria-picks/ARPC-797.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-2">
+          <img src="assets/photos/gloria-picks/ARPC-798.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-3">
+          <img src="assets/photos/gloria-picks/ARPC-801.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-1">
+          <img src="assets/photos/gloria-picks/ARPC-803.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-2">
+          <img src="assets/photos/gloria-picks/ARPC-804.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-3">
+          <img src="assets/photos/gloria-picks/ARPC-806.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-1">
+          <img src="assets/photos/gloria-picks/ARPC-807.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-2">
+          <img src="assets/photos/gloria-picks/ARPC-809.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-3">
+          <img src="assets/photos/gloria-picks/ARPC-810.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-1">
+          <img src="assets/photos/gloria-picks/ARPC-813.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-2">
+          <img src="assets/photos/gloria-picks/ARPC-814.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-3">
+          <img src="assets/photos/gloria-picks/ARPC-815.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-1">
+          <img src="assets/photos/gloria-picks/ARPC-816.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-2">
+          <img src="assets/photos/gloria-picks/ARPC-818.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-3">
+          <img src="assets/photos/gloria-picks/ARPC-817.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-1">
+          <img src="assets/photos/gloria-picks/ARPC-823.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-2">
+          <img src="assets/photos/gloria-picks/ARPC-824.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-3">
+          <img src="assets/photos/gloria-picks/ARPC-825.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-1">
+          <img src="assets/photos/gloria-picks/ARPC-826.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item reveal-scale delay-2">
+          <img src="assets/photos/gloria-picks/ARPC-827.jpg" alt="Wedding moment at The Wandering Bar" loading="lazy" decoding="async">
           <div class="gallery-overlay"></div>
         </div>
       </div>
